@@ -27,9 +27,9 @@ export default {
 
           router.push({ name: 'Admin' })
         })
-        .catch(function(error) {
-          console.log(error)
-        })
+      // .catch(function(error) {
+      //   console.log(error)
+      // })
     }
   }
 }

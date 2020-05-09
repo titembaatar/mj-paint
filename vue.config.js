@@ -1,4 +1,5 @@
 module.exports = {
   transpileDependencies: ['vuetify'],
-  publicPath: process.env.NODE_ENV === 'production' ? '/mjapp-paint/' : '/'
+  publicPath:
+    process.env.NODE_ENV === 'production' ? '/titembaatar.github.io/' : '/'
 }

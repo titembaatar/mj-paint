@@ -49,15 +49,14 @@ export default {
         bindFirebaseRef('shops', db.ref('shops'))
         bindFirebaseRef('jeans', db.ref('jeans'))
         bindFirebaseRef('patterns', db.ref('patterns'))
-        bindFirebaseRef('colors', db.ref('colors'))
-          .then(res => {
-            commit('DB_LOADED')
-            resolve(res)
-          })
-          .catch(err => {
-            console.log('error')
-            reject(err)
-          })
+        bindFirebaseRef('colors', db.ref('colors')).then(res => {
+          commit('DB_LOADED')
+          resolve(res)
+        })
+        // .catch(err => {
+        //   console.log('error')
+        //   reject(err)
+        // })
       })
     }),
     push(context, object) {
