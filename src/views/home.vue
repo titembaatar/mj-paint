@@ -1,10 +1,35 @@
 <template>
   <v-app>
-    <v-navigation-drawer app v-model="drawer" temporary>
+    <v-app-bar app color="white" v-if="$vuetify.breakpoint.xsOnly">
+      <v-icon>$logo</v-icon>
+      <v-spacer />
+      <v-btn icon :to="{ name: 'Print' }">
+        <v-icon>mdi-printer</v-icon>
+      </v-btn>
+      <v-btn icon @click.stop="reset()">
+        <v-icon>mdi-eraser</v-icon>
+      </v-btn>
+      <v-btn icon @click.stop="drawer = !drawer">
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
+      <template v-slot:extension>
+        <v-tabs grow v-model="tab">
+          <v-tab>左</v-tab>
+          <v-tab>右</v-tab>
+        </v-tabs>
+      </template>
+    </v-app-bar>
+
+    <v-navigation-drawer
+      app
+      v-model="drawer"
+      temporary
+      :right="$vuetify.breakpoint.xsOnly ? true : false"
+    >
       <homeDrawer />
     </v-navigation-drawer>
 
-    <v-content>
+    <v-content v-if="$vuetify.breakpoint.smAndUp">
       <v-btn absolute top left icon @click.stop="drawer = !drawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>
@@ -30,6 +55,78 @@
         <homeSVG />
       </div>
     </v-content>
+
+    <v-content v-if="$vuetify.breakpoint.xsOnly">
+      <v-container fill-height>
+        <v-row>
+          <v-col>
+            <v-tabs-items v-model="tab" class="pa-4">
+              <v-tab-item>
+                <homeLeft />
+              </v-tab-item>
+              <v-tab-item>
+                <homeRight />
+              </v-tab-item>
+            </v-tabs-items>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col>
+            <v-slide-group show-arrows>
+              <v-slide-item
+                v-for="n in 7"
+                :key="n"
+                v-slot:default="{ active, toggle }"
+              >
+                <v-btn
+                  class="ma-2"
+                  :input-value="active"
+                  active-class="purple white--text"
+                  depressed
+                  @click="toggle"
+                >
+                  Options {{ n }}
+                </v-btn>
+              </v-slide-item>
+            </v-slide-group>
+            <v-slide-group show-arrows>
+              <v-slide-item
+                v-for="n in 7"
+                :key="n"
+                v-slot:default="{ active, toggle }"
+              >
+                <v-btn
+                  class="ma-2"
+                  :input-value="active"
+                  active-class="purple white--text"
+                  depressed
+                  @click="toggle"
+                >
+                  Options {{ n }}
+                </v-btn>
+              </v-slide-item>
+            </v-slide-group>
+            <v-slide-group show-arrows>
+              <v-slide-item
+                v-for="n in 7"
+                :key="n"
+                v-slot:default="{ active, toggle }"
+              >
+                <v-btn
+                  class="ma-2"
+                  :input-value="active"
+                  active-class="purple white--text"
+                  depressed
+                  @click="toggle"
+                >
+                  Options {{ n }}
+                </v-btn>
+              </v-slide-item>
+            </v-slide-group>
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
   </v-app>
 </template>
 
@@ -37,6 +134,8 @@
 import homeOptions from '@/components/homeOptions.vue'
 import homeSVG from '@/components/homeSVG.vue'
 import homeDrawer from '@/components/homeDrawer.vue'
+import homeLeft from '@/components/homeLeft.vue'
+import homeRight from '@/components/homeRight.vue'
 import { mapState } from 'vuex'
 import { ResetActive } from '../buses/reset-active'
 
@@ -50,11 +149,14 @@ export default {
   components: {
     homeDrawer,
     homeOptions,
-    homeSVG
+    homeSVG,
+    homeLeft,
+    homeRight
   },
   data() {
     return {
-      drawer: null
+      drawer: null,
+      tab: null
     }
   },
   methods: {
