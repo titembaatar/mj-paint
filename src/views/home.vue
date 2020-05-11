@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <div>
     <v-app-bar
       app
       color="white"
@@ -80,7 +80,7 @@
         <homeOptions :tabPocket="tabPocket" />
       </v-container>
     </v-content>
-  </v-app>
+  </div>
 </template>
 
 <script>
