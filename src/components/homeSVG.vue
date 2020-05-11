@@ -30,6 +30,11 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      isActive: false
+    }
+  },
   computed: {
     ...mapState({
       pockets: state => state.active.pockets
@@ -40,6 +45,6 @@ export default {
 
 <style lang="sass">
 svg
-  max-height: calc( 100vh - 256px )
   max-width: 100%
+  max-height: calc( 100vh - 256px )
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fill-height">
     <v-app-bar
       app
       color="white"
@@ -34,6 +34,10 @@
       <homeDrawer />
     </v-navigation-drawer>
 
+    <v-overlay :value="!this.$store.getters.loaded">
+      <v-progress-circular color="white" indeterminate size="100" width="10" />
+    </v-overlay>
+
     <v-content v-if="$vuetify.breakpoint.smAndUp">
       <v-btn absolute top left icon @click.stop="drawer = !drawer">
         <v-icon>mdi-menu</v-icon>
@@ -44,14 +48,6 @@
       <v-btn absolute bottom right icon :to="{ name: 'Print' }">
         <v-icon>mdi-printer</v-icon>
       </v-btn>
-      <v-overlay :value="!this.$store.getters.loaded">
-        <v-progress-circular
-          color="white"
-          indeterminate
-          size="100"
-          width="10"
-        />
-      </v-overlay>
       <v-container
         fill-height
         v-show="this.$store.getters.loaded === true ? true : false"
@@ -64,12 +60,12 @@
       </v-container>
     </v-content>
 
-    <v-content v-if="$vuetify.breakpoint.xsOnly">
+    <v-content v-if="$vuetify.breakpoint.xsOnly" class="fill-height">
       <v-container
         fill-height
         v-show="this.$store.getters.loaded === true ? true : false"
       >
-        <v-tabs-items v-model="tabPocket" class="pa-4">
+        <v-tabs-items v-model="tabPocket" class="pa-4 flex-grow-1">
           <v-tab-item>
             <homeSVG :stitch="false" :sp="false" :layers="pockets[0].layers" />
           </v-tab-item>

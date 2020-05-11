@@ -46,7 +46,7 @@
           <v-icon>mdi-plus</v-icon>
         </v-btn>
 
-        <v-overlay :value="overlay">
+        <v-overlay :value="overlay" opacity="0.9">
           <v-btn fixed icon top right dark @click="overlay = false">
             <v-icon>mdi-close</v-icon>
           </v-btn>
@@ -82,7 +82,7 @@
       </v-container>
     </v-content>
     <v-bottom-navigation app v-if="$vuetify.breakpoint.xsOnly">
-      <v-tabs v-model="tab" centered grow>
+      <v-tabs v-model="tab" centered grow height="100%">
         <v-tab v-for="(object, i) in OBJECTS" :key="i">
           <v-icon>{{ object.icon }}</v-icon>
         </v-tab>
@@ -136,12 +136,4 @@ export default {
 }
 </script>
 
-<style lang="sass" scoped>
-#container
-  display: flex
-  flex-flow: column nowrap
-  align-items: center
-
-.flow
-  overflow-y: auto
-</style>
+<style lang="sass" scoped></style>
