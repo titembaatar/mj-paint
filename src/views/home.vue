@@ -1,6 +1,11 @@
 <template>
   <v-app>
-    <v-app-bar app color="white" v-if="$vuetify.breakpoint.xsOnly">
+    <v-app-bar
+      app
+      color="white"
+      v-if="$vuetify.breakpoint.xsOnly"
+      max-width="100vw"
+    >
       <v-icon>$logo</v-icon>
       <v-spacer />
       <v-btn icon :to="{ name: 'Print' }">
@@ -13,7 +18,7 @@
         <v-icon>mdi-menu</v-icon>
       </v-btn>
       <template v-slot:extension>
-        <v-tabs grow v-model="tab">
+        <v-tabs grow v-model="tabPocket">
           <v-tab>左</v-tab>
           <v-tab>右</v-tab>
         </v-tabs>
@@ -51,37 +56,28 @@
         fill-height
         v-show="this.$store.getters.loaded === true ? true : false"
       >
-        <v-row class="mt-8" justify="space-around">
+        <div class="d-flex flex-row justify-space-around flex-grow-1 mt-8">
           <homeSVG :stitch="false" :sp="false" :layers="pockets[0].layers" />
           <homeSVG :stitch="true" :sp="true" :layers="pockets[1].layers" />
-        </v-row>
+        </div>
         <homeOptions />
       </v-container>
     </v-content>
 
     <v-content v-if="$vuetify.breakpoint.xsOnly">
-      <v-container fill-height>
-        <v-row>
-          <v-col>
-            <v-tabs-items v-model="tab" class="pa-4">
-              <v-tab-item>
-                <homeSVG
-                  :stitch="false"
-                  :sp="false"
-                  :layers="pockets[0].layers"
-                />
-              </v-tab-item>
-              <v-tab-item>
-                <homeSVG
-                  :stitch="true"
-                  :sp="true"
-                  :layers="pockets[1].layers"
-                />
-              </v-tab-item>
-            </v-tabs-items>
-          </v-col>
-        </v-row>
-        <homeOptions />
+      <v-container
+        fill-height
+        v-show="this.$store.getters.loaded === true ? true : false"
+      >
+        <v-tabs-items v-model="tabPocket" class="pa-4">
+          <v-tab-item>
+            <homeSVG :stitch="false" :sp="false" :layers="pockets[0].layers" />
+          </v-tab-item>
+          <v-tab-item>
+            <homeSVG :stitch="true" :sp="true" :layers="pockets[1].layers" />
+          </v-tab-item>
+        </v-tabs-items>
+        <homeOptions :tabPocket="tabPocket" />
       </v-container>
     </v-content>
   </v-app>
@@ -104,7 +100,7 @@ export default {
   data() {
     return {
       drawer: null,
-      tab: null
+      tabPocket: null
     }
   },
   methods: {

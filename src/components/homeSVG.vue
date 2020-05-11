@@ -1,5 +1,5 @@
 <template>
-  <svg viewBox="0 0 500 500">
+  <svg viewBox="0 0 500 500" class="pa-4">
     <BasePocketSvg :stitch="stitch" :sp="sp" />
     <BasePath
       v-for="layer in layers"
@@ -41,4 +41,5 @@ export default {
 <style lang="sass">
 svg
   max-height: calc( 100vh - 256px )
+  max-width: 100%
 </style>

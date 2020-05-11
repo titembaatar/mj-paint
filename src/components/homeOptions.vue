@@ -1,35 +1,29 @@
 <template>
-  <v-row>
-    <v-col class="pa-0">
-      <v-row>
-        <btnToggle
-          :objects="pockets"
-          :value="false"
-          @click="setPocketActive($event)"
-          v-if="$vuetify.breakpoint.smAndUp"
-        />
-        <btnToggle
-          :objects="pockets[0].layers"
-          :value="false"
-          @click="setLayerActive($event)"
-        />
-      </v-row>
-      <v-row justify="center">
-        <btnToggle
-          :objects="displayPatterns"
-          :value="true"
-          @click="setPatternActive($event)"
-        />
-      </v-row>
-      <v-row justify="center">
-        <btnToggle
-          :objects="displayColors"
-          :value="true"
-          @click="setColorActive($event)"
-        />
-      </v-row>
-    </v-col>
-  </v-row>
+  <div class="d-flex flex-column align-center flex-grow-1">
+    <div class="d-flex flex-row">
+      <btnToggle
+        :objects="pockets"
+        :value="false"
+        @click="setPocketActive($event)"
+        v-if="$vuetify.breakpoint.smAndUp"
+      />
+      <btnToggle
+        :objects="pockets[0].layers"
+        :value="false"
+        @click="setLayerActive($event)"
+      />
+    </div>
+    <btnToggle
+      :objects="displayPatterns"
+      :value="true"
+      @click="setPatternActive($event)"
+    />
+    <btnToggle
+      :objects="displayColors"
+      :value="true"
+      @click="setColorActive($event)"
+    />
+  </div>
 </template>
 
 <script>
@@ -39,6 +33,12 @@ import btnToggle from '@/components/btnToggle.vue'
 export default {
   components: {
     btnToggle
+  },
+  props: {
+    tabPocket: {
+      type: Number,
+      default: null
+    }
   },
   data() {
     return {
@@ -55,7 +55,7 @@ export default {
       this.layerActive = n[0]
     },
     setPatternActive(n) {
-      let i = this.pocketActive
+      let i = this.tabPocket === null ? this.pocketActive : this.tabPocket
       let j = this.layerActive
       let index = n[0]
       let id = n[1]
@@ -70,7 +70,7 @@ export default {
       ])
     },
     setColorActive(n) {
-      let i = this.pocketActive
+      let i = this.tabPocket === null ? this.pocketActive : this.tabPocket
       let j = this.layerActive
       let index = n[0]
       let id = n[1]
