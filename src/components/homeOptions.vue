@@ -1,29 +1,35 @@
 <template>
-  <div id="options">
-    <div id="option0" class="mb-2">
-      <btnToggle
-        :objects="pockets"
-        :value="false"
-        @click="setPocketActive($event)"
-      />
-      <btnToggle
-        :objects="pockets[0].layers"
-        :value="false"
-        @click="setLayerActive($event)"
-      />
-    </div>
-    <btnToggle
-      :objects="displayPatterns"
-      :value="true"
-      @click="setPatternActive($event)"
-    />
-    <btnToggle
-      :objects="displayColors"
-      :value="true"
-      @click="setColorActive($event)"
-      class="mt-2"
-    />
-  </div>
+  <v-row>
+    <v-col class="pa-0">
+      <v-row>
+        <btnToggle
+          :objects="pockets"
+          :value="false"
+          @click="setPocketActive($event)"
+          v-if="$vuetify.breakpoint.smAndUp"
+        />
+        <btnToggle
+          :objects="pockets[0].layers"
+          :value="false"
+          @click="setLayerActive($event)"
+        />
+      </v-row>
+      <v-row justify="center">
+        <btnToggle
+          :objects="displayPatterns"
+          :value="true"
+          @click="setPatternActive($event)"
+        />
+      </v-row>
+      <v-row justify="center">
+        <btnToggle
+          :objects="displayColors"
+          :value="true"
+          @click="setColorActive($event)"
+        />
+      </v-row>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
@@ -123,19 +129,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass" scoped>
-#options
-  display: flex
-  flex-flow: column nowrap
-  align-items: center
-  width: 100%
-  padding: 1rem
-
-#option0
-  flex: 1 1 auto
-  display: flex
-  flex-flow: row nowrap
-  justify-content: space-evenly
-  width: 60%
-</style>

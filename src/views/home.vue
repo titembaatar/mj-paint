@@ -47,13 +47,16 @@
           width="10"
         />
       </v-overlay>
-      <div
-        id="container"
+      <v-container
+        fill-height
         v-show="this.$store.getters.loaded === true ? true : false"
       >
+        <v-row class="mt-8" justify="space-around">
+          <homeSVG :stitch="false" :sp="false" :layers="pockets[0].layers" />
+          <homeSVG :stitch="true" :sp="true" :layers="pockets[1].layers" />
+        </v-row>
         <homeOptions />
-        <homeSVG />
-      </div>
+      </v-container>
     </v-content>
 
     <v-content v-if="$vuetify.breakpoint.xsOnly">
@@ -62,69 +65,23 @@
           <v-col>
             <v-tabs-items v-model="tab" class="pa-4">
               <v-tab-item>
-                <homeLeft />
+                <homeSVG
+                  :stitch="false"
+                  :sp="false"
+                  :layers="pockets[0].layers"
+                />
               </v-tab-item>
               <v-tab-item>
-                <homeRight />
+                <homeSVG
+                  :stitch="true"
+                  :sp="true"
+                  :layers="pockets[1].layers"
+                />
               </v-tab-item>
             </v-tabs-items>
           </v-col>
         </v-row>
-        <v-row>
-          <v-col>
-            <v-slide-group show-arrows>
-              <v-slide-item
-                v-for="n in 7"
-                :key="n"
-                v-slot:default="{ active, toggle }"
-              >
-                <v-btn
-                  class="ma-2"
-                  :input-value="active"
-                  active-class="purple white--text"
-                  depressed
-                  @click="toggle"
-                >
-                  Options {{ n }}
-                </v-btn>
-              </v-slide-item>
-            </v-slide-group>
-            <v-slide-group show-arrows>
-              <v-slide-item
-                v-for="n in 7"
-                :key="n"
-                v-slot:default="{ active, toggle }"
-              >
-                <v-btn
-                  class="ma-2"
-                  :input-value="active"
-                  active-class="purple white--text"
-                  depressed
-                  @click="toggle"
-                >
-                  Options {{ n }}
-                </v-btn>
-              </v-slide-item>
-            </v-slide-group>
-            <v-slide-group show-arrows>
-              <v-slide-item
-                v-for="n in 7"
-                :key="n"
-                v-slot:default="{ active, toggle }"
-              >
-                <v-btn
-                  class="ma-2"
-                  :input-value="active"
-                  active-class="purple white--text"
-                  depressed
-                  @click="toggle"
-                >
-                  Options {{ n }}
-                </v-btn>
-              </v-slide-item>
-            </v-slide-group>
-          </v-col>
-        </v-row>
+        <homeOptions />
       </v-container>
     </v-content>
   </v-app>
@@ -134,24 +91,15 @@
 import homeOptions from '@/components/homeOptions.vue'
 import homeSVG from '@/components/homeSVG.vue'
 import homeDrawer from '@/components/homeDrawer.vue'
-import homeLeft from '@/components/homeLeft.vue'
-import homeRight from '@/components/homeRight.vue'
 import { mapState } from 'vuex'
 import { ResetActive } from '../buses/reset-active'
-
-window.addEventListener('resize', () => {
-  let vh = window.innerHeight * 0.01
-  document.documentElement.style.setProperty('--vh', `${vh}px`)
-})
 
 export default {
   name: 'Home',
   components: {
     homeDrawer,
     homeOptions,
-    homeSVG,
-    homeLeft,
-    homeRight
+    homeSVG
   },
   data() {
     return {
@@ -179,12 +127,3 @@ export default {
   }
 }
 </script>
-
-<style lang="sass" scoped>
-#container
-  display: flex
-  flex-flow: column nowrap
-  align-items: center
-  height: 100vh
-  height: calc(var(--vh, 1vh) * 100)
-</style>
