@@ -34,7 +34,7 @@
       </v-card-actions>
     </v-card>
 
-    <v-dialog v-model="deleteConfirm">
+    <v-dialog v-model="deleteConfirm" max-width="350px">
       <v-card class="pt-8">
         <v-card-text>
           本当にこのアイテムを解消しますか。

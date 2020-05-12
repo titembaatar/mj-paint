@@ -1,6 +1,6 @@
 <template>
   <v-content>
-    <div id="printContainer" 　class="d-none d-print-flex flex-column">
+    <div id="printContainer" class="d-none d-print-flex flex-column">
       <v-card outlined tile dark color="grey">
         <v-row no-gutters>
           <v-spacer />

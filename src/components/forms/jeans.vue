@@ -86,7 +86,8 @@ export default {
   },
   computed: {
     ...mapState({
-      shops: state => state.bind.shops
+      shops: state => state.bind.shops,
+      colors: state => state.bind.colors
     }),
     ...mapGetters(['jeansLength']),
     COLORSPICKER() {
