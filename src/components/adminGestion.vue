@@ -22,14 +22,39 @@
       </v-list>
       <v-card-actions>
         <v-spacer />
-        <v-btn right icon>
+        <v-btn icon>
           <v-icon>mdi-pencil</v-icon>
         </v-btn>
-        <v-btn right icon @click="remove(reference, index)">
+        <v-btn
+          icon
+          @click=";(deleteConfirm = true), sendRefAndIndex(reference, index)"
+        >
           <v-icon>mdi-delete</v-icon>
         </v-btn>
       </v-card-actions>
     </v-card>
+
+    <v-dialog v-model="deleteConfirm">
+      <v-card class="pt-8">
+        <v-card-text>
+          本当にこのアイテムを解消しますか。
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer />
+          <v-btn
+            depressed
+            color="red"
+            dark
+            @click="remove(ref, i), (deleteConfirm = false)"
+          >
+            解消
+          </v-btn>
+          <v-btn color="red" text @click="deleteConfirm = false">
+            キャンセル
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-dialog>
   </v-container>
 </template>
 
@@ -45,6 +70,13 @@ export default {
       required: true
     }
   },
+  data() {
+    return {
+      deleteConfirm: false,
+      ref: null,
+      i: null
+    }
+  },
   computed: {
     reverse() {
       return [...this.objects].reverse()
@@ -53,6 +85,10 @@ export default {
   methods: {
     remove(r, i) {
       this.$store.dispatch('remove', { ref: r, child: i })
+    },
+    sendRefAndIndex(r, i) {
+      this.ref = r
+      this.i = i
     }
   }
 }

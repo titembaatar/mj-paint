@@ -38,7 +38,7 @@
       <v-progress-circular color="white" indeterminate size="100" width="10" />
     </v-overlay>
 
-    <v-content v-if="$vuetify.breakpoint.smAndUp">
+    <v-content v-if="$vuetify.breakpoint.smAndUp" class="fill-height">
       <v-btn absolute top left icon @click.stop="drawer = !drawer">
         <v-icon>mdi-menu</v-icon>
       </v-btn>

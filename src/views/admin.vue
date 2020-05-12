@@ -1,6 +1,6 @@
 <template>
   <div class="fill-height">
-    <v-app-bar app color="white" max-width="100vw">
+    <v-app-bar app color="white" max-width="100vw" elevate-on-scroll>
       <v-btn depressed large color="primary" :to="{ name: 'Home' }">
         <v-icon>$logo</v-icon>
       </v-btn>

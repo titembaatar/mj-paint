@@ -3,7 +3,11 @@ import router from '@/router'
 
 export default {
   state: {
-    user: null
+    user: null,
+    error: {
+      call: false,
+      msg: null
+    }
   },
   getters: {
     user(state) {
@@ -13,6 +17,10 @@ export default {
   mutations: {
     SET_USER(state, payload) {
       state.user = payload
+    },
+    ERROR(state, error) {
+      state.error.msg = error
+      state.error.call = true
     }
   },
   actions: {
@@ -27,9 +35,9 @@ export default {
 
           router.push({ name: 'Admin' })
         })
-      // .catch(function(error) {
-      //   console.log(error)
-      // })
+        .catch(function(error) {
+          commit('ERROR', error)
+        })
     }
   }
 }

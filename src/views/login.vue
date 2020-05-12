@@ -8,9 +8,10 @@
     </v-app-bar>
     <v-content class="fill-height">
       <div class="d-flex flex-column justify-start align-center fill-height">
-        <v-snackbar v-model="error" color="warning" top>
-          問題がありました。もう一回情報を入力してください。
-          <v-icon @click="error = null" dark>
+        <v-snackbar v-model="error.call" color="red" multi-line>
+          <v-icon dark class="mr-4">mdi-alert</v-icon>
+          メールまたは、パスワードが違います。 もう一度入力ください。
+          <v-icon @click="error.call = false" dark>
             mdi-close
           </v-icon>
         </v-snackbar>
@@ -46,6 +47,7 @@
 <script>
 import firebase from 'firebase/app'
 import { auth, signInWithEmailAndPassword } from 'firebase/auth'
+import { mapState } from 'vuex'
 
 export default {
   name: 'Login',
@@ -55,10 +57,12 @@ export default {
         email: '',
         password: ''
       },
-      error: null,
       rules: [v => !!v || '必要']
     }
   },
+  computed: mapState({
+    error: state => state.auth.error
+  }),
   methods: {
     submit() {
       this.$store.dispatch('fetchUser', {

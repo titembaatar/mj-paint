@@ -10,6 +10,7 @@
       v-text="object.display"
       :value="value === true ? object.id : ''"
       @click="$emit('click', [index, object.id])"
+      :disabled="aShops.display === '店舗' ? true : false"
     />
   </v-btn-toggle>
 </template>
