@@ -1,5 +1,5 @@
 <template>
-  <svg viewBox="0 0 500 500" class="pa-4">
+  <svg viewBox="0 0 500 500" class="pa-4 flex-grow-1">
     <BasePocketSvg :stitch="stitch" :sp="sp" />
     <BasePath
       v-for="layer in layers"

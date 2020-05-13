@@ -30,7 +30,8 @@ export default {
             limitedColor: false,
             icsp: false,
             color: 'none',
-            colorID: ''
+            colorID: '',
+            isPrint: false
           },
           {
             id: 'l2',
@@ -41,7 +42,8 @@ export default {
             limitedColor: false,
             icsp: false,
             color: 'none',
-            colorID: ''
+            colorID: '',
+            isPrint: false
           },
           {
             id: 'l3',
@@ -52,7 +54,8 @@ export default {
             limitedColor: false,
             icsp: false,
             color: 'none',
-            colorID: ''
+            colorID: '',
+            isPrint: false
           }
         ]
       },
@@ -69,7 +72,8 @@ export default {
             limitedColor: false,
             icsp: false,
             color: 'none',
-            colorID: ''
+            colorID: '',
+            isPrint: false
           },
           {
             id: 'r2',
@@ -80,7 +84,8 @@ export default {
             limitedColor: false,
             icsp: false,
             color: 'none',
-            colorID: ''
+            colorID: '',
+            isPrint: false
           },
           {
             id: 'r3',
@@ -91,11 +96,13 @@ export default {
             limitedColor: false,
             icsp: false,
             color: 'none',
-            colorID: ''
+            colorID: '',
+            isPrint: false
           }
         ]
       }
-    ]
+    ],
+    onPrint: true
   },
   getters: {
     shopColor: state => {
@@ -115,12 +122,36 @@ export default {
         const p = state.pockets[i]
         for (let j = 0; j < p.layers.length; j++) {
           const l = p.layers[j]
-          if (l.pattern !== '') {
+          if (l.isPrint === true) {
             pN++
           }
         }
       }
       return pN
+    },
+    printPockets: state => {
+      let pP = [
+        {
+          id: 'l',
+          display: '左',
+          layers: []
+        },
+        {
+          id: 'r',
+          display: '右',
+          layers: []
+        }
+      ]
+      for (let i = 0; i < state.pockets.length; i++) {
+        const p = state.pockets[i]
+        for (let j = 0; j < p.layers.length; j++) {
+          const l = p.layers[j]
+          if (l.isPrint === true) {
+            pP[i].layers.push(l)
+          }
+        }
+      }
+      return pP
     }
   },
   mutations: {
@@ -135,11 +166,32 @@ export default {
       state.pockets[i].layers[j].patternID = id
       state.pockets[i].layers[j].patternDisplay = display
       state.pockets[i].layers[j].icsp = icsp
+      state.pockets[i].layers[j].isPrint = state.onPrint
     },
     SET_COLOR(state, [bool, color, ID, i, j]) {
       state.pockets[i].layers[j].limitedColor = bool
       state.pockets[i].layers[j].color = color
       state.pockets[i].layers[j].colorID = ID
+      state.pockets[i].layers[j].isPrint = state.onPrint
+    },
+    ON_PRINT(state, payload) {
+      state.onPrint = payload
+    },
+    RESET(state) {
+      for (let i = 0; i < state.pockets.length; i++) {
+        const p = state.pockets[i]
+        for (let j = 0; j < p.layers.length; j++) {
+          const l = p.layers[j]
+          l.pattern = ''
+          l.patternID = ''
+          l.patternDisplay = ''
+          l.limitedColor = false
+          l.icsp = false
+          l.color = 'none'
+          l.colorID = ''
+          l.isPrint = false
+        }
+      }
     }
   },
   actions: {

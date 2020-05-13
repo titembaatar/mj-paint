@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="fill-height d-flex flex-column">
     <v-list>
       <v-list-item color="transparent" :to="{ name: 'Home' }">
         <v-list-item-icon>
@@ -23,8 +23,22 @@
 
     <v-divider></v-divider>
 
-    <v-list nav dense>
-      <v-switch v-model="colorKeep" label="限定色変更" />
+    <v-list nav dense class="d-flex flex-column fill-height">
+      <v-switch
+        v-model="onPrint"
+        hide-details="auto"
+        height="40px"
+        class="ma-0 pa-0"
+        label="注文用紙に追加"
+        @change="onPrintState()"
+      />
+      <v-switch
+        v-model="colorKeep"
+        hide-details="auto"
+        height="40px"
+        class="ma-0 pa-0"
+        label="限定色変更"
+      />
 
       <v-list-group prepend-icon="mdi-store" no-action>
         <template v-slot:activator>
@@ -69,7 +83,9 @@
         </v-list-item>
       </v-list-group>
 
-      <v-list-item link :to="{ name: 'Login' }">
+      <v-spacer />
+
+      <v-list-item link :to="{ name: 'Login' }" class="flex-basis">
         <v-list-item-icon>
           <v-icon>mdi-account</v-icon>
         </v-list-item-icon>
@@ -89,6 +105,7 @@ export default {
     return {
       shop: 1,
       jean: 1,
+      onPrint: true,
       colorKeep: true
     }
   },
@@ -109,6 +126,9 @@ export default {
     },
     setJeanActive(obj) {
       this.$store.commit('SET_JEAN_ACTIVE', obj)
+    },
+    onPrintState() {
+      this.$store.commit('ON_PRINT', this.onPrint)
     }
   },
   computed: {
@@ -134,3 +154,8 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.flex-basis
+  flex: none
+</style>

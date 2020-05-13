@@ -8,7 +8,7 @@
         v-if="$vuetify.breakpoint.smAndUp"
       />
       <btnToggle
-        :objects="pockets[0].layers"
+        :objects="pockets[pocketActive].layers"
         :value="false"
         @click="setLayerActive($event)"
       />
@@ -42,7 +42,7 @@ export default {
   },
   data() {
     return {
-      pocketActive: null,
+      pocketActive: 0,
       layerActive: null,
       patternActive: null
     }

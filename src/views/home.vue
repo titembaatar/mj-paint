@@ -50,9 +50,10 @@
       </v-btn>
       <v-container
         fill-height
-        v-show="this.$store.getters.loaded === true ? true : false"
+        v-if="this.$store.getters.loaded === true ? true : false"
+        class="d-flex flex-column"
       >
-        <div class="d-flex flex-row justify-space-around flex-grow-1 mt-8">
+        <div class="d-flex flex-row justify-space-around flex-grow-1 mt-8 svg">
           <homeSVG :stitch="false" :sp="false" :layers="pockets[0].layers" />
           <homeSVG :stitch="true" :sp="true" :layers="pockets[1].layers" />
         </div>
@@ -101,14 +102,7 @@ export default {
   },
   methods: {
     reset() {
-      for (let i = 0; i < this.pockets.length; i++) {
-        const p = this.pockets[i]
-        for (let j = 0; j < p.layers.length; j++) {
-          const l = p.layers[j]
-          l.pattern = ''
-          l.color = 'none'
-        }
-      }
+      this.$store.commit('RESET')
       ResetActive.$emit('resetClicked')
     }
   },
@@ -119,3 +113,8 @@ export default {
   }
 }
 </script>
+
+<style lang="sass" scoped>
+.svg
+  width: 100%
+</style>
