@@ -5,7 +5,7 @@
       color="white"
       max-width="100vw"
       elevate-on-scroll
-      class="d-print-none"
+      class="d-none d-print-none"
     >
       <v-btn depressed large color="primary" :to="{ name: 'Home' }">
         <v-icon>$logo</v-icon>
@@ -13,7 +13,7 @@
     </v-app-bar>
 
     <v-content>
-      <v-row justify="center" align="center" class="d-print-none d-flex">
+      <v-row justify="center" align="center" class="d-print-none d-none">
         <v-card class="pa-4" max-width="300px" flat>
           <v-form ref="form">
             <v-row>
@@ -74,7 +74,7 @@
         </v-card>
       </v-row>
 
-      <div id="printContainer" class="d-none d-print-flex flex-column">
+      <div id="printContainer" class="d-flex d-print-flex flex-column">
         <v-card outlined tile dark color="grey">
           <v-row no-gutters>
             <v-spacer />
@@ -201,9 +201,9 @@
               class="pa-2 flex-grow-1 d-flex"
               max-width="15mm"
             >
-              <p style="writing-mode: vertical-rl" class="ma-auto">
+              <v-card-text class="leftRight ma-auto">
                 {{ leftOrRight(i) }}
-              </p>
+              </v-card-text>
             </v-card>
           </v-col>
           <v-col>
@@ -239,7 +239,7 @@
                     <span>カラー：{{ printPockets[i].layers[j].colorID }}</span>
                   </v-row>
                   <v-row no-gutters justify="center">
-                    <svg viewBox="0 0 500 500">
+                    <svg viewBox="0 0 500 500" class="flex-grow-1">
                       <BasePocketSvg :stitch="false" :sp="false" />
                       <BasePath
                         :id="printPockets[i].layers[j].id"
@@ -407,4 +407,9 @@ svg
 
 .font-size
   font-size: .7rem
+
+.leftRight
+  writing-mode: vertical-rl
+  white-space: pre
+  text-align: center
 </style>
