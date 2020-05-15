@@ -27,7 +27,7 @@
         </v-btn>
         <v-btn
           icon
-          @click=";(deleteConfirm = true), sendRefAndIndex(reference, index)"
+          @click="sendRefAndID(reference, object.id), (deleteConfirm = true)"
         >
           <v-icon>mdi-delete</v-icon>
         </v-btn>
@@ -45,7 +45,7 @@
             depressed
             color="red"
             dark
-            @click="remove(ref, i), (deleteConfirm = false)"
+            @click="remove(ref, id), (deleteConfirm = false)"
           >
             解消
           </v-btn>
@@ -74,7 +74,7 @@ export default {
     return {
       deleteConfirm: false,
       ref: null,
-      i: null
+      id: null
     }
   },
   computed: {
@@ -83,12 +83,12 @@ export default {
     }
   },
   methods: {
-    remove(r, i) {
-      this.$store.dispatch('remove', { ref: r, child: i })
+    remove(r, id) {
+      this.$store.dispatch('remove', { ref: r, child: id })
     },
-    sendRefAndIndex(r, i) {
+    sendRefAndID(r, id) {
       this.ref = r
-      this.i = i
+      this.id = id
     }
   }
 }

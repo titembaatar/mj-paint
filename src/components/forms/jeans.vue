@@ -48,7 +48,7 @@
       @click="
         $emit('submit', {
           ref: 'jeans',
-          child: jeansLength,
+          child: newJeans.id,
           data: newJeans
         })
       "

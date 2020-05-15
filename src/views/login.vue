@@ -35,7 +35,14 @@
               @keyup.enter="submit()"
             />
             <v-btn @click="submit()" color="primary" block depressed>
-              ログイン
+              <span v-if="load === false">ログイン</span>
+              <v-progress-circular
+                size="24"
+                :width="3"
+                color="white"
+                indeterminate
+                v-if="load === true"
+              />
             </v-btn>
           </v-form>
         </v-card>
@@ -61,6 +68,7 @@ export default {
     }
   },
   computed: mapState({
+    load: state => state.auth.load,
     error: state => state.auth.error
   }),
   methods: {

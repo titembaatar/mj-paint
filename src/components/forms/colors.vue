@@ -24,7 +24,7 @@
       @click="
         $emit('submit', {
           ref: 'colors',
-          child: colorsLength,
+          child: newColor.id,
           data: newColor
         })
       "

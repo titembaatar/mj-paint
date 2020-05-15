@@ -78,15 +78,19 @@
           </v-row>
 
           <v-text-field label="担当者" v-model="form.clerk" />
-          <v-alert type="info" class="font-size">
-            手書きしたい場合、フォームを入力せず印刷ボタンを押してください。
+          <v-alert type="info" class="font-size pa-3">
+            <v-row>
+              <v-col class="pa-0">
+                手書きしたい場合、<br />入力せず印刷を押してください。
+              </v-col>
+              <v-col class="shrink pa-0">
+                <v-btn dark class="mr-4" text @click="print()">
+                  印刷
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-alert>
-          <v-row>
-            <v-spacer />
-            <v-btn color="success" class="mr-4" depressed　@click="print()">
-              印刷
-            </v-btn>
-          </v-row>
+          <v-row> </v-row>
         </v-form>
       </v-card>
     </v-row>

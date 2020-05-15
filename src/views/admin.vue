@@ -58,7 +58,7 @@
             max-width="340px"
             max-height="90vh"
           >
-            <formShops @submit="push($event)" />
+            <formShops @submit="push($event), (overlay = false)" />
           </v-card>
           <v-card
             class="pa-4 flow"
@@ -67,7 +67,7 @@
             max-width="340px"
             max-height="90vh"
           >
-            <formJeans @submit="push($event)" />
+            <formJeans @submit="push($event), (overlay = false)" />
           </v-card>
           <v-card
             class="pa-4 flow"
@@ -76,7 +76,7 @@
             max-width="340px"
             max-height="90vh"
           >
-            <formColors @submit="push($event)" />
+            <formColors @submit="push($event), (overlay = false)" />
           </v-card>
         </v-overlay>
       </v-container>

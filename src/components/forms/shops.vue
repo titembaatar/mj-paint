@@ -29,7 +29,7 @@
       @click="
         $emit('submit', {
           ref: 'shops',
-          child: shopsLength,
+          child: newShop.id,
           data: newShop
         })
       "

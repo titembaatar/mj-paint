@@ -4,6 +4,7 @@ import router from '@/router'
 export default {
   state: {
     user: null,
+    load: false,
     error: {
       call: false,
       msg: null
@@ -17,14 +18,21 @@ export default {
   mutations: {
     SET_USER(state, payload) {
       state.user = payload
+      state.load = false
+    },
+    LOAD(state) {
+      state.load = true
     },
     ERROR(state, error) {
       state.error.msg = error
       state.error.call = true
+      state.load = false
     }
   },
   actions: {
     fetchUser({ commit }, { email, password }) {
+      commit('LOAD')
+
       firebase
         .auth()
         .signInWithEmailAndPassword(email, password)

@@ -74,12 +74,6 @@ export default {
           .child(payload.child)
           .remove()
       )
-    },
-    pushNewJeans: firebaseAction(object => {
-      return db.ref('jeans').push(object)
-    }),
-    pushNewColor: firebaseAction(object => {
-      return db.ref('colors').push(object)
-    })
+    }
   }
 }
