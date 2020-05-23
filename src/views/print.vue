@@ -8,7 +8,6 @@
       left
       color="primary"
       :to="{ name: 'Home' }"
-      class="d-print-none"
     >
       <v-icon>$logo</v-icon>
     </v-btn>
@@ -27,13 +26,13 @@
         <v-form ref="form">
           <v-row>
             <v-col cols="6" class="py-0">
-              <v-text-field label="顧客番号" v-model.number="form.customerID" />
+              <v-text-field label="顧客番号" v-model="form.customerID" />
             </v-col>
             <v-col cols="1" class="align-self-center text-align pa-0">
               ー
             </v-col>
             <v-col cols="5" class="py-0">
-              <v-text-field label="店舗番号" v-model.number="form.shopID" />
+              <v-text-field label="店舗番号" v-model="form.shopID" />
             </v-col>
           </v-row>
           <v-text-field label="お名前" v-model="form.customerName" />
@@ -91,7 +90,6 @@
               </v-col>
             </v-row>
           </v-alert>
-          <v-row> </v-row>
         </v-form>
       </v-card>
     </v-row>
