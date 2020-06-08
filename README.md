@@ -13,6 +13,7 @@
 | ![sidemenu][002] | ![shops-selection][003] | ![jeans-selection][004] |  |
 
 ##### 限定色変更
+
 このスイッチはオンの場合店舗を変更すると全ての限定色のペイントは新しい選択した店舗の限定色を変更します。  
 例：左ポケットに味野本店の限定色出陣ラインが入れて、岡山店を変更したら、出陣ラインの色は岡山店限定色になります。  
 オフの場合店舗を変更すると限定色のペイントは新しい選択した店舗の限定色を変更せず。
@@ -20,9 +21,11 @@
 ![change-color][005]
 
 ##### 店舗選択
+
 アプリを使う前に必ず店舗を選択してください。
 
 ###### ジーンズ選択
+
 ジーンズのリストに定番ジーンズを選択できます。  
 生地の色・出陣ラインの色・道丹ステッチ等が変わってます。  
 例：
@@ -36,16 +39,18 @@
 ![reset-button][009]
 
 #### 印刷ボタン
+
 まだ修正があります。
 
 #### ポケット・レイヤー・柄・色ボタン
-ペイントを入れるためにこの順番でボタンを押してください。  
 
-> ポケット　→　レイヤー　→　柄　→　色  
+ペイントを入れるためにこの順番でボタンを押してください。
+
+> ポケット　 → 　レイヤー　 → 　柄　 → 　色
 
 レイヤーはペイントの重ね順番です。  
 １は一番下のペイント。  
-３は一番上のペイント。  
+３は一番上のペイント。
 
 ![usage][010]
 
@@ -81,18 +86,19 @@
 #### 新規ボタン
 
 ##### 店舗
-- ID：店舗番号を入力してください。店舗番号ない場合ローマ字で短いIDを入れてください。（例：WEB店のIDはweb、POPUP店のIDはpopup等）
+
+- ID：店舗番号を入力してください。店舗番号ない場合ローマ字で短い ID を入れてください。（例：WEB 店の ID は web、POPUP 店の ID は popup 等）
 - 漢字：サイドメニューの店舗リストに店舗の書き方になります。
 - 色名：注文用紙にペイント色の名前になります。（例：大阪店はイエロー、岡山店はマスカットグリーン等）
 - 色：カラーピッカー殻を選択するか、カラーコードを入力してください。色はイメージです。画面・光によって本物色が違う可能です。気を付けてください。
 
-全部を入力したら、追加ボタンを押して、右上の　X　ボタンを押してください。
+全部を入力したら、追加ボタンを押して、右上の　 X 　ボタンを押してください。
 
 ![admin-shops][013]
 
 ##### ジーンズ
 
-- ID：ローマ字で短いIDを入れてください。（例：shutsujin・doutan等）
+- ID：ローマ字で短い ID を入れてください。（例：shutsujin・doutan 等）
 - 漢字：サイドメニューのジーンズリストにジーンズの書き方になります。
 - 生地：リストから生地の色を選択してください。
 - 出陣ライン：ジーンズが出陣ラインが入れたら、スイッチをオンしてください。ない場合オフのまましてください。
@@ -100,11 +106,10 @@
 - 下出陣ライン色：出陣ラインがある場合、下のラインの色をリストから選択してください。色のリストは限定色プラス定番色。
 - 道丹ステッチ：道丹ステッチある場合、スイッチをオンしてください。ない場合オフのまましてください。
 - キッズ：キッズのジーンズの場合、スイッチをオンしてください。ない場合オフのまましてください。
-キッズジーンズだったら、キッズができない柄は柄ボタンに出てこない。
+  キッズジーンズだったら、キッズができない柄は柄ボタンに出てこない。
 - 限定：このジーンズは店舗限定ジーンズの場合、リストから店舗をチェックしてください。全店に出るジーンズの場合、何もチェックせず。
 
-
-全部を入力したら、追加ボタンを押して、右上の　X　ボタンを押してください。
+全部を入力したら、追加ボタンを押して、右上の　 X 　ボタンを押してください。
 
 ![admin-jeans][014]
 
@@ -114,12 +119,12 @@
 
 ##### 色
 
-- ID：ローマ字で短いIDを入れてください。（例：white・red等）
+- ID：ローマ字で短い ID を入れてください。（例：white・red 等）
 - 色名：注文用紙にペイント色の名前になります。（例：ホワイト、レッド等）
 - 市松柄可能色：この色は市松柄と可能な場合、スイッチをオンしてください。不可能な場合、スイッチをオフのまましてください。
 - 色：カラーピッカー殻を選択するか、カラーコードを入力してください。色はイメージです。画面・光によって本物色が違う可能です。気を付けてください。
 
-全部を入力したら、追加ボタンを押して、右上の　X　ボタンを押してください。
+全部を入力したら、追加ボタンを押して、右上の　 X 　ボタンを押してください。
 
 ![admin-colors][015]
 
@@ -127,21 +132,25 @@
 
 ### 店員さん
 
-![user-ui-mobile][016
+![user-ui-mobile][016]
 
 #### サイドメニュー
+
 > [iPad・パソコンのサイドメニューへ](#サイドメニュー)
 
 #### リセットボタン
+
 > [iPad・パソコンのリセットボタンへ](#リセットボタン)
 
 #### 印刷ボタン
+
 > [iPad・パソコンの印刷ボタンへ](#印刷ボタン)
 
 #### ポケット・レイヤー・柄・色ボタン
-ペイントを入れるためにこの順番でボタンを押してください。  
 
-> レイヤー　→　柄　→　色  
+ペイントを入れるためにこの順番でボタンを押してください。
+
+> レイヤー　 → 　柄　 → 　色
 
 スマホにポケットは上のタブメニュー殻を選択してください。  
 デフォルトでは左ポケット。ポケットを変更するために右・左ボタンを押すか、  
@@ -160,9 +169,8 @@
 [iPad・パソコンのアドミンへ](#アドミン)  
 使い方は一緒です。
 
-
 [001]: https://docs.google.com/drawings/d/e/2PACX-1vRXXF4TjeFQyC_6UUsMI664GP4z7hUpy6JLnhjmgfAX9gOOxhymFM7YYyOIb_Za1-MruujjphbkkzPJ/pub?w=1440&h=1080
-[002]:https://lh4.googleusercontent.com/apvKKNHPGc8I0s45jqiPw1XScOblWzsuQ8XDBkTo_vfkhe7rC4MXnqOFscFCp1sh4rXytJAcOKwOOMsE4dYNYHxvHjFojJNSgWs-gMPGR8LHq1riuLNcpaM5Ltwcd0_oIao4JrbX
+[002]: https://lh4.googleusercontent.com/apvKKNHPGc8I0s45jqiPw1XScOblWzsuQ8XDBkTo_vfkhe7rC4MXnqOFscFCp1sh4rXytJAcOKwOOMsE4dYNYHxvHjFojJNSgWs-gMPGR8LHq1riuLNcpaM5Ltwcd0_oIao4JrbX
 [003]: https://lh3.googleusercontent.com/qKbC8brx8P3A6cwvdxm1_YPfVTt7b7mmJm6c-8VGz142iWId2dc8awVbbxIRTnobQ1VaA2LUB0HFAtmLkHz0Rsy65LzdPXTPWMGaEoJJ31BIwfmTtCWVbEmT8pvrEQt543c4ig1P
 [004]: https://lh3.googleusercontent.com/ziRJCzVpOQx7nFzVjVRNGd_9iNWnWXPk6XHcLzgt1oXpuqw8p0zccIxpUq3LSh0OEKap322ZBSpFSdY_rwwBpbmAiEplFdMyiDZG5MD3cjZnaubWoa8g3Td-uUBKLcxOjiNt-HPY
 [005]: https://lh5.googleusercontent.com/LjBhjG6M8nAVRox7UHiBi2ZWE1T6djpmqamzhiGre0p68EqEOUbDNFz5-Gc-7KJR9l26_JBGFIwLjHeMhEV9RGIn0bj5Iwu3m6ZYyXOV19uod3-yoNe4NW5EAmKGVqAfDuk2fNeV

@@ -24,7 +24,7 @@
     <v-divider></v-divider>
 
     <v-list nav dense class="d-flex flex-column fill-height">
-      <v-switch
+      <!-- <v-switch
         v-model="onPrint"
         hide-details="auto"
         height="40px"
@@ -38,7 +38,7 @@
         height="40px"
         class="ma-0 pa-0"
         label="限定色変更"
-      />
+      /> -->
 
       <v-list-group prepend-icon="mdi-store" no-action>
         <template v-slot:activator>
@@ -82,8 +82,6 @@
           </v-list-item-content>
         </v-list-item>
       </v-list-group>
-
-      <v-spacer />
 
       <v-list-item link :to="{ name: 'Login' }" class="flex-basis">
         <v-list-item-icon>
