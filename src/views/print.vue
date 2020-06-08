@@ -8,6 +8,7 @@
       left
       color="primary"
       :to="{ name: 'Home' }"
+      class="d-print-none"
     >
       <v-icon>$logo</v-icon>
     </v-btn>
